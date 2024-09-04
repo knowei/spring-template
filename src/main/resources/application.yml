@@ -1,0 +1,12 @@
+server:
+  port: 8080
+spring:
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+#knife4j:
+#  enable: true #开启增强配置
+#  basic: #基本的登录认证
+#    enable: true
+#    username: admin
+#    password: 123456
