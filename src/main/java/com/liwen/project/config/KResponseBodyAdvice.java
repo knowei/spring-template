@@ -49,8 +49,8 @@ public class KResponseBodyAdvice implements ResponseBodyAdvice, InitializingBean
     @Override
     public Object beforeBodyWrite(Object o, MethodParameter returnType, MediaType selectedContentType, Class selectedConverterType, ServerHttpRequest request, ServerHttpResponse response) {
         ServletServerHttpRequest ssrequest = (ServletServerHttpRequest) request;
-        log.info("{}", ssrequest.getServletRequest().getRequestURI());
-        log.info("{}", ssrequest.getServletRequest().getRequestURL());
+//        log.info("{}", ssrequest.getServletRequest().getRequestURI());
+//        log.info("{}", ssrequest.getServletRequest().getRequestURL());
         String requestURI = ssrequest.getServletRequest().getRequestURI();
         if (requestURI.indexOf("swagger") > 0 || requestURI.indexOf("api-docs")> 0) {
             return o;

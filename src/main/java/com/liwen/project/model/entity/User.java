@@ -14,30 +14,22 @@
  * limitations under the License.
  */
 
-package com.liwen.project.demos;
+package com.liwen.project.model.entity;
+
+import lombok.Data;
 
 /**
  * @author <a href="mailto:chenxilzx1@gmail.com">theonefx</a>
  */
+@Data
 public class User {
 
-    private String name;
+    private String username;
 
-    private Integer age;
+    private String password;
 
-    public String getName() {
-        return name;
-    }
+    private String email;
 
-    public void setName(String name) {
-        this.name = name;
-    }
+    private String phone;
 
-    public Integer getAge() {
-        return age;
-    }
-
-    public void setAge(Integer age) {
-        this.age = age;
-    }
 }

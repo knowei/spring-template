@@ -16,11 +16,14 @@
 
 package com.liwen.project.controller;
 
-import com.liwen.project.demos.User;
+import com.liwen.project.common.response.PageResponse;
+import com.liwen.project.model.entity.User;
 import com.liwen.project.exception.BusinessException;
+import com.liwen.project.model.request.UserPagingDto;
+import com.liwen.project.service.UserService;
 import io.swagger.annotations.Api;
 import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.tags.Tag;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -32,19 +35,15 @@ import java.util.List;
 @RestController
 @RequestMapping("/user")
 @Api(tags = "用户管理")
-public class BasicController {
-    @GetMapping()
+public class UserController {
+
+    @Autowired
+    private UserService userService;
+
+    @PostMapping()
     @Operation(summary = "用户管理相关接口")
-    public List<User> list() {
-        List list = new ArrayList<User>();
-        User user;
-        for (int i = 0; i < 5; i++) {
-            user = new User();
-            user.setName("man " + i);
-            user.setAge(i);
-            list.add(user);
-        }
-        return list;
+    public PageResponse<User> list(@RequestBody UserPagingDto dto) {
+        return userService.getList(dto);
     }
 
     @GetMapping("/error")
